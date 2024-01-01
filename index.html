@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="base::layout(~{::title},~{::section})">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Index Page</title>
+</head>
+
+<body>
+	<section>
+		<h3 class="text-center p-4">Employees Table </h3>
+
+		<th:block="$session.msg">
+			<p class="text-center text-warning fs-4" th:text="${session.msg}"></p>
+			</th:block>
+			<th:block th:text="${@empService.removeMsg()}"></th:block>
+
+
+			<div class="container">
+				<div class="row">
+					<div class="col-md-9 offset-md-2">
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Id</th>
+									<th scope="col">Name</th>
+									<th scope="col">Mobile no</th>
+									<th scope="col">Email </th>
+									<th scope="col">Department</th>
+									<th scope="col">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="e:${emplist}">
+									<th scope="row">[[${e.id}]]</th>
+									<td>[[${e.name}]]</td>
+									<td>[[${e.phno}]]</td>
+									<td>[[${e.email}]]</td>
+									<td>[[${e.department}]]</td>
+									<td>
+										<a th:href="@{'editEmp/'+${e.id}}" class="btn btn-primary">Edit</a>
+										<a th:href="@{'deleteEmp/'+${e.id}}" class="btn btn-danger">Delete</a>
+
+									</td>
+
+								</tr>
+
+							</tbody>
+						</table>
+
+					</div>
+				</div>
+			</div>
+
+
+
+	</section>
+</body>
+
+</html>
