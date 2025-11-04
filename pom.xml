@@ -11,6 +11,7 @@
 	<groupId>com.spring</groupId>
 	<artifactId>06_RestAPIProject</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>06_RestAPIProject</name>
 	<description>06_RestAPIProject</description>
 	<properties>
